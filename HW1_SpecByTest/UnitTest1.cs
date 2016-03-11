@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using HW1_Production;
 
 namespace TestSpec
 {
@@ -12,7 +13,7 @@ namespace TestSpec
         {
             ///arrange
             var target = new ProductionCode();            
-            var stubData = new List<StubProduct>
+            var stubData = new List<IProduct>
             {
                 new StubProduct { Id = 1 , Cost = 1 ,Revenue =11 ,SellPrice =21 },
                 new StubProduct { Id = 2 , Cost = 2 ,Revenue =12 ,SellPrice =22 },
@@ -40,7 +41,7 @@ namespace TestSpec
         {
             ///arrange
             var target = new ProductionCode();
-            var stubData = new List<StubProduct>
+            var stubData = new List<IProduct>
             {
                 new StubProduct { Id = 1 , Cost = 1 ,Revenue =11 ,SellPrice =21 },
                 new StubProduct { Id = 2 , Cost = 2 ,Revenue =12 ,SellPrice =22 },
@@ -64,7 +65,7 @@ namespace TestSpec
         }
     }
 
-    internal class StubProduct
+    internal class StubProduct: IProduct
     {
         public int Id { get; set; }
         public int Cost { get; set; }
